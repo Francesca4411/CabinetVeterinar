@@ -1,0 +1,9 @@
+{
+  "solution": {
+    "path": "CabinetVeterinar.slnx",
+    "projects": [
+      "..\\CabinetVeterinarMobile\\CabinetVeterinarMobile.csproj",
+      "CabinetVeterinarWeb.csproj"
+    ]
+  }
+}
