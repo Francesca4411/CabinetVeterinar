@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../CabinetVeterinarMobile/CabinetVeterinarMobile.csproj" />
+  <Project Path="CabinetVeterinarWeb.csproj" />
+</Solution>
