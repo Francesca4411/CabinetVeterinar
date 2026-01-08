@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CabinetVeterinarMobile.Data;
+using Microsoft.Extensions.Logging;
+using Microsoft.Maui;
+using CabinetVeterinarMobile.Views;
 
 namespace CabinetVeterinarMobile
 {
@@ -18,6 +21,10 @@ namespace CabinetVeterinarMobile
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "vet.db3");
+            builder.Services.AddSingleton(new VetDatabase(dbPath));
+
+            builder.Services.AddSingleton<PetsPage>();
 
             return builder.Build();
         }

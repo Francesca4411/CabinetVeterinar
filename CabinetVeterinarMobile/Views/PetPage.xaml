@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CabinetVeterinarMobile.Views.PetPage"
+             Title="Pet">
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="10">
+
+            <Label Text="Name" />
+            <Entry x:Name="NameEntry" Placeholder="e.g., Max" />
+
+            <Label Text="Species" />
+            <Entry x:Name="SpeciesEntry" Placeholder="Dog / Cat" />
+
+            <Label Text="Breed" />
+            <Entry x:Name="BreedEntry" Placeholder="optional" />
+
+            <Label Text="Age (years)" />
+            <Entry x:Name="AgeEntry" Keyboard="Numeric" Placeholder="optional" />
+
+            <Label Text="Owner name" />
+            <Entry x:Name="OwnerEntry" Placeholder="e.g., Ana Pop" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Save" Clicked="OnSaveClicked" />
+                <Button Text="Cancel" Clicked="OnCancelClicked" />
+                <Button Text="Delete" Clicked="OnDeleteClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CabinetVeterinarMobile.Views.AppointmentsPage"
+             Title="Appointments">
+    <VerticalStackLayout Padding="12" Spacing="10">
+
+        <Button Text="Back to pets"
+                BackgroundColor="LightGray"
+                Clicked="OnBackToPetsClicked" />
+        <Button Text="Add Appointment" Clicked="OnAddClicked" />
+
+        <CollectionView x:Name="AppointmentsCollection"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Padding="12" Margin="0,0,0,8">
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding StartAt}" FontAttributes="Bold" />
+                            <Label Text="{Binding VetName}" FontSize="12" />
+                            <Label Text="{Binding ServiceName}" FontSize="12" />
+                            <Label Text="{Binding Notes}" FontSize="12" LineBreakMode="TailTruncation" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

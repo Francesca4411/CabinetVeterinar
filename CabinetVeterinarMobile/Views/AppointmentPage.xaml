@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CabinetVeterinarMobile.Views.AppointmentPage"
+             Title="Appointment">
+    <ScrollView>
+        <VerticalStackLayout Padding="12" Spacing="10">
+
+            <Button Text="Back"
+                    BackgroundColor="LightGray"
+                    Clicked="OnBackToHomeClicked" />
+
+            <Label Text="Date time" />
+            <DatePicker x:Name="DatePicker" />
+            <TimePicker x:Name="TimePicker" />
+
+            <Label Text="PetId (numeric)" />
+            <Entry x:Name="PetIdEntry" Keyboard="Numeric" Placeholder="e.g., 1" />
+
+            <Label Text="Vet name" />
+            <Entry x:Name="VetEntry" Placeholder="e.g., Dr. Popescu Elena" />
+
+            <Label Text="Service name" />
+            <Entry x:Name="ServiceEntry" Placeholder="e.g., Consultatie" />
+
+            <Label Text="Notes" />
+            <Editor x:Name="NotesEditor" AutoSize="TextChanges" HeightRequest="100" />
+
+            <HorizontalStackLayout Spacing="10">
+                <Button Text="Save" Clicked="OnSaveClicked" />
+                <Button Text="Cancel" Clicked="OnCancelClicked" />
+                <Button Text="Delete" Clicked="OnDeleteClicked" />
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
