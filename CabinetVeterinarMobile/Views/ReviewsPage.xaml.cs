@@ -1,11 +1,13 @@
 using CabinetVeterinarMobile.Data;
 using CabinetVeterinarMobile.Models;
+using CabinetVeterinarMobile.Services;
 
 namespace CabinetVeterinarMobile.Views;
 
 public partial class ReviewsPage : ContentPage
 {
     private readonly VetDatabase _db;
+    private readonly ApiService _api = new ApiService();
 
     public ReviewsPage(VetDatabase db)
     {
@@ -17,8 +19,15 @@ public partial class ReviewsPage : ContentPage
     {
         base.OnAppearing();
 
-        await _db.InitAsync();
-        ReviewsCollection.ItemsSource = await _db.GetReviewsAsync();
+        try
+        {
+            var items = await _api.GetReviewsAsync();
+            ReviewsCollection.ItemsSource = items;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlertAsync("API error", ex.Message, "OK");
+        }
     }
 
     private async void OnAddClicked(object sender, EventArgs e)

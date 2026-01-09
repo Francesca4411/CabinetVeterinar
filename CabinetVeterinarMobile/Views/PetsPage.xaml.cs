@@ -1,23 +1,33 @@
 using CabinetVeterinarMobile.Data;
 using CabinetVeterinarMobile.Models;
+using CabinetVeterinarMobile.Services;
 
 namespace CabinetVeterinarMobile.Views;
 
 public partial class PetsPage : ContentPage
 {
     private readonly VetDatabase _db;
+    private readonly ApiService _api = new ApiService();
 
     public PetsPage(VetDatabase db)
     {
         InitializeComponent();
         _db = db;
     }
+
     protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-        await _db.InitAsync();
-        PetsCollection.ItemsSource = await _db.GetPetsAsync();
+        try
+        {
+            var pets = await _api.GetPetsAsync();
+            PetsCollection.ItemsSource = pets;
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlertAsync("API error", ex.Message, "OK");
+        }
     }
 
     private async void OnAddClicked(object sender, EventArgs e)

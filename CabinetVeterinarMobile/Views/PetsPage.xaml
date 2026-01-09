@@ -2,27 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CabinetVeterinarMobile.Views.PetsPage"
-                 
              Title="Pets">
-    <VerticalStackLayout Padding="12" Spacing="10">
 
-        <Button Text="Add Pet" Clicked="OnAddClicked" />
-        <Button Text="Appointments" Clicked="OnAppointmentsClicked" />
-        <Button Text="Reviews" Clicked="OnReviewsClicked" />
+    <Grid Padding="12" RowSpacing="10"
+          RowDefinitions="Auto,Auto,Auto,*">
 
-        <CollectionView x:Name="PetsCollection" SelectionMode="Single" SelectionChanged="OnSelectionChanged">
+        <Button Text="Add Pet"
+                Grid.Row="0"
+                Clicked="OnAddClicked" />
+
+        <Button Text="Appointments"
+                Grid.Row="1"
+                Clicked="OnAppointmentsClicked" />
+
+        <Button Text="Reviews"
+                Grid.Row="2"
+                Clicked="OnReviewsClicked" />
+
+        <CollectionView x:Name="PetsCollection"
+                        Grid.Row="3"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSelectionChanged">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame Padding="12" Margin="0,0,0,8">
+                    <Border Padding="12" Margin="0,0,0,8">
                         <VerticalStackLayout Spacing="2">
                             <Label Text="{Binding Name}" FontAttributes="Bold" />
                             <Label Text="{Binding Species}" FontSize="12" />
                             <Label Text="{Binding OwnerName}" FontSize="12" />
                         </VerticalStackLayout>
-                    </Frame>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
-    </VerticalStackLayout>
+    </Grid>
+
 </ContentPage>
